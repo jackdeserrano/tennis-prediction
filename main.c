@@ -84,12 +84,12 @@ double p_wins_set(double p_s, double p_r, int serving_first, int has_tiebreak) {
 	double p = 0;
 
 	// reaching 6-6 (5-5 and then splitting next two games)
-        p +=       q_0 * q_0 * q_0 * q_0 * q_0 * p_1 * p_1 * p_1 * p_1 * p_1;
-        p += 25  * p_0 * q_0 * q_0 * q_0 * q_0 * p_1 * p_1 * p_1 * p_1 * q_1;
-        p += 100 * p_0 * p_0 * q_0 * q_0 * q_0 * p_1 * p_1 * p_1 * q_1 * q_1;
-        p += 100 * p_0 * p_0 * p_0 * q_0 * q_0 * p_1 * p_1 * q_1 * q_1 * q_1;
-        p += 25  * p_0 * p_0 * p_0 * p_0 * q_0 * p_1 * q_1 * q_1 * q_1 * q_1;
-        p +=       p_0 * p_0 * p_0 * p_0 * p_0 * q_1 * q_1 * q_1 * q_1 * q_1;
+	p +=       q_0 * q_0 * q_0 * q_0 * q_0 * p_1 * p_1 * p_1 * p_1 * p_1;
+	p += 25  * p_0 * q_0 * q_0 * q_0 * q_0 * p_1 * p_1 * p_1 * p_1 * q_1;
+	p += 100 * p_0 * p_0 * q_0 * q_0 * q_0 * p_1 * p_1 * p_1 * q_1 * q_1;
+	p += 100 * p_0 * p_0 * p_0 * q_0 * q_0 * p_1 * p_1 * q_1 * q_1 * q_1;
+	p += 25  * p_0 * p_0 * p_0 * p_0 * q_0 * p_1 * q_1 * q_1 * q_1 * q_1;
+	p +=       p_0 * p_0 * p_0 * p_0 * p_0 * q_1 * q_1 * q_1 * q_1 * q_1;
 	
 	p *= q_0 * p_1 + p_0 * q_1;
 
@@ -130,9 +130,3 @@ double p_wins_set(double p_s, double p_r, int serving_first, int has_tiebreak) {
 	p +=       p_0 * p_0 * p_0 * p_0 * p_0 * p_0 * p_1 * q_1 * q_1 * q_1 * q_1 * q_1;
 	return p;
 }
-
-int main(void) {
-	printf("%lf\n", p_wins_set(0.8,0.3,1,1));
-	return 0;
-}
-
