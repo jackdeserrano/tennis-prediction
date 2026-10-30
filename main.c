@@ -18,7 +18,6 @@ double p_wins_game(double p_0) {
 	return p;
 }
 
-// final set tiebreak needs 10 points
 double p_wins_tiebreak(double p_s, double p_r, int serving_first) {
 	double p_0 = serving_first ? p_s : p_r;
 	double p_1 = serving_first ? p_r : p_s;
@@ -94,7 +93,7 @@ double p_wins_set(double p_s, double p_r, int serving_first, int has_tiebreak) {
 	p *= q_0 * p_1 + p_0 * q_1;
 
 	// after reaching 6-6
-	p *= has_tiebreak ? p_wins_tiebreak(p_s, p_r, serving_first, 0) : p_0 * p_1 / (p_0 * p_1 + q_0 * q_1);
+	p *= has_tiebreak ? p_wins_tiebreak(p_s, p_r, serving_first) : p_0 * p_1 / (p_0 * p_1 + q_0 * q_1);
 
 	// 6-0
 	p += p_0 * p_0 * p_0 * p_1 * p_1 * p_1;
@@ -128,5 +127,6 @@ double p_wins_set(double p_s, double p_r, int serving_first, int has_tiebreak) {
 	p += 100 * p_0 * p_0 * p_0 * p_0 * q_0 * q_0 * p_1 * p_1 * p_1 * q_1 * q_1 * q_1;
 	p += 25  * p_0 * p_0 * p_0 * p_0 * p_0 * q_0 * p_1 * p_1 * q_1 * q_1 * q_1 * q_1;
 	p +=       p_0 * p_0 * p_0 * p_0 * p_0 * p_0 * p_1 * q_1 * q_1 * q_1 * q_1 * q_1;
+
 	return p;
 }
