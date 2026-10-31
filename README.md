@@ -1,3 +1,3 @@
 ### Tennis Prediction
 
-This assumes fixed probabilities for winning service games and for winning return games.
+Assumes the probabilities of winning service points and return points are constant throughout a match.
